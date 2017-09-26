@@ -13,6 +13,4 @@ class Anagram
     array
   end
 
-  end
-
 end
