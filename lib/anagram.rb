@@ -8,11 +8,9 @@ class Anagram
 
   def match(array)
     word = self.word
-    array.each do |w|
-      delete_if w.length != word.length
-    end
-    array.keep_if {|w| w.chars.permutation.scan(word).length > 0 }
-    array 
+    array.delete_if {w.length != word.length}
+    array.keep_if {|w| w.chars.to_a.permutation.map(&:join).any?{|ana| ana == word}}
+    array
   end
 
   end
